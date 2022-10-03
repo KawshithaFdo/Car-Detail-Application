@@ -11,7 +11,7 @@ export default function Login({navigation}) {
 
             <Input mx="4" placeholder="User Name" w="80%" borderRadius={100} marginTop={20} />
             <Input type='password' mx="4" placeholder="Password"  w="80%" borderRadius={100} marginTop={5} />
-            <Button size="lg" variant="solid" colorScheme="primary" borderRadius={100} marginTop={8} w={200} >
+            <Button size="lg" variant="solid" colorScheme="primary" borderRadius={100} marginTop={8} w={200} onPress={()=>{navigation.navigate("Dashboard")}} >
                         Login
             </Button>
         </Box>
