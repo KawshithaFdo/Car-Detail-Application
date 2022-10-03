@@ -1,5 +1,6 @@
 import { View, Text, FlatList,TouchableOpacity,StyleSheet,Button } from 'react-native'
 import React, { useEffect, useState } from 'react'
+import { color } from 'native-base/lib/typescript/theme/styled-system';
 
 
 export default function Dashboard({navigation}) {
@@ -23,20 +24,20 @@ export default function Dashboard({navigation}) {
             <FlatList
                 data={ cars }
                 renderItem={({ item }) =>
-                    <TouchableOpacity style={{borderWidth:1, marginBottom:'5%', padding:5}}  onPress={()=>{navigation.navigate("Vehicle")}}>
-                        <Text style={{marginBottom:10,fontWeight:'bold'}} >{item.reg_no}</Text>
+                    <TouchableOpacity style={{borderWidth:0, marginBottom:'5%', padding:5, backgroundColor:'#74b9ff', borderRadius:10 }}  onPress={()=>{navigation.navigate("Vehicle",{obj:item})}}>
+                        <Text style={{marginBottom:10,fontWeight:'bold',color:'#1B1464'}} >{item.reg_no}</Text>
                         <Text style={{marginBottom:10}} >{item.description}</Text>
                     </TouchableOpacity>
                 }
             />
-        </View>
+        </View> 
   )
 }
 
 const styles=StyleSheet.create({
     btn:{
         marginTop:'5%',
-        width:'100%',
+        height:'15%',
         marginBottom:'10%',
         padding:5,
         backgroundColor:'green',
