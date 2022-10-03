@@ -1,8 +1,8 @@
-import { View, Text, FlatList,TouchableOpacity,StyleSheet } from 'react-native'
+import { View, Text, FlatList,TouchableOpacity,StyleSheet,Button } from 'react-native'
 import React, { useEffect, useState } from 'react'
 
 
-export default function Dashboard(navigation) {
+export default function Dashboard({navigation}) {
 
     const[cars,setcars]=useState([]);
 
@@ -17,13 +17,13 @@ export default function Dashboard(navigation) {
 
   return (
     <View style={{padding:20}}> 
-        <TouchableOpacity style={styles.btn}  onPress={()=>{console.log("hi");}}>
+        <TouchableOpacity style={styles.btn}  onPress={()=>{navigation.navigate("NewVehicle")}}>
                         <Text style={{fontWeight:'bold',color:'white'}}>Add New Vehicle</Text>
                     </TouchableOpacity>
             <FlatList
                 data={ cars }
                 renderItem={({ item }) =>
-                    <TouchableOpacity style={{borderWidth:1, marginBottom:'5%', padding:5}}  onPress={()=>{console.log("hello");}}>
+                    <TouchableOpacity style={{borderWidth:1, marginBottom:'5%', padding:5}}  onPress={()=>{navigation.navigate("Vehicle")}}>
                         <Text style={{marginBottom:10,fontWeight:'bold'}} >{item.reg_no}</Text>
                         <Text style={{marginBottom:10}} >{item.description}</Text>
                     </TouchableOpacity>
@@ -39,7 +39,7 @@ const styles=StyleSheet.create({
         width:'100%',
         marginBottom:'10%',
         padding:5,
-        backgroundColor:'red',
+        backgroundColor:'green',
         justifyContent:'center',
         alignItems:'center',
         borderRadius:100
