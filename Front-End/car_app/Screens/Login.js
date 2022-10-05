@@ -23,12 +23,7 @@ export default function Login({navigation}) {
       if(response.status==200){()=>{navigation.navigate("Dashboard")}}
     })
     .then((json) =>console.log(json))
-    
- 
-
-    
-
-  }
+ }
   return (
     <NativeBaseProvider>
        <ImageBackground source={image} resizeMode="cover" >

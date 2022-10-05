@@ -1,10 +1,8 @@
 import { View, Text, FlatList,TouchableOpacity,StyleSheet,Button } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { color } from 'native-base/lib/typescript/theme/styled-system';
-
 
 export default function Dashboard({navigation}) {
-
+    
     const[cars,setcars]=useState([]);
 
     useEffect(() => {
