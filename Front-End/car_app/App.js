@@ -7,18 +7,23 @@ import NewUser from './Screens/NewUser';
 import Dashboard from './Screens/Dashboard';
 import Vehicle from './Screens/Vehicle';
 import NewVehicle from './Screens/NewVehicle';
+import Image from './Components/Image';
 
 const Stack = createStackNavigator();
 
 export default function App() {
+
+  
+
   return (
    <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator> 
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="NewUser" component={NewUser} />
       <Stack.Screen name="Dashboard" component={Dashboard} />
       <Stack.Screen name="Vehicle" component={Vehicle} />
       <Stack.Screen name="NewVehicle" component={NewVehicle} />
+      <Stack.Screen name="Image" component={Image} />
       
     </Stack.Navigator>
    </NavigationContainer>

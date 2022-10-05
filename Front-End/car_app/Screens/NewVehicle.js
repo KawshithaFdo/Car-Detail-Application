@@ -7,6 +7,7 @@ export default function NewVehicle() {
 
     const [reg_no,setReg_no]=useState('');
     const [description,setDescription]=useState('');
+    
    
 
     const saveData=() =>{
