@@ -1,9 +1,22 @@
-import { View, Text, FlatList,TouchableOpacity,StyleSheet,Button } from 'react-native'
+import { View, Text, FlatList,TouchableOpacity,StyleSheet } from 'react-native'
 import React, { useEffect, useState } from 'react'
+import { color } from 'native-base/lib/typescript/theme/styled-system';
 
-export default function Dashboard({navigation}) {
+
+export default function Dashboard({navigation,route}) {
     
     const[cars,setcars]=useState([]);
+
+    var name=route.params;
+
+    const deleteuser=()=>{
+        fetch('http://192.168.8.196:4000/user/'+name, {
+            method: 'DELETE',
+        })
+            .then((res) =>  {Alert.alert("User Deleted !");
+        })
+            .then(res => console.log(res))
+      }
 
     useEffect(() => {
 
@@ -15,7 +28,10 @@ export default function Dashboard({navigation}) {
     })
 
   return (
-    <View style={{padding:20}}> 
+    <View style={{padding:20}}>
+        <TouchableOpacity style={{borderWidth:0, marginBottom:'5%',marginRight:'73%', padding:5, backgroundColor:'#EA2027', borderRadius:10 }}  onPress={deleteuser}>
+                        <Text style={{fontWeight:'bold',color:'white'}}>Delete User</Text>
+                    </TouchableOpacity> 
         <TouchableOpacity style={styles.btn}  onPress={()=>{navigation.navigate("NewVehicle")}}>
                         <Text style={{fontWeight:'bold',color:'white'}}>Add New Vehicle</Text>
                     </TouchableOpacity>
@@ -28,6 +44,8 @@ export default function Dashboard({navigation}) {
                     </TouchableOpacity>
                 }
             />
+            
+            
         </View> 
   )
 }

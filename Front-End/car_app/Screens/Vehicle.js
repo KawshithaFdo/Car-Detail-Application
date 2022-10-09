@@ -8,8 +8,8 @@ export default function Vehicle({ route }) {
 
     useEffect(() => {
         setReg_no(route.params.obj.reg_no)
-        setDescription(route.params.obj.description + "" )
-    })
+        setDescription(route.params.obj.description + " " )
+    },[setDescription]);
 
     const updateVehicle=()=>{
       fetch('http://192.168.8.196:4000/vehicle', { 
@@ -43,7 +43,7 @@ export default function Vehicle({ route }) {
             <Text fontSize="2xl" bold underline mt="10%" ml="25%">Manage Vehicle</Text>
             <VStack space={8} alignItems="center" mt="15%">
                 <Input mx="3" placeholder="Reg_no" value={reg_no} onChangeText={(e)=>{setReg_no(e)}} w="90%" />
-                <Input mx="3" placeholder="Description" value={description} onChangeText={(e)=>{setDescription(e)}} h="25%"  />            
+                <Input mx="3" placeholder="Description" value={this.description} onChangeText={(e)=>{setDescription(e)}} h="25%"  />            
 
                 <Button size="md" variant="solid" colorScheme="primary" onPress={updateVehicle} >
                     Update Vehicle
